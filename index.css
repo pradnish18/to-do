@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(45deg, #1a1a1a, #2b2b2b);
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.avengers-todo-container {
+  position: relative;
+  animation: heroFadeIn 0.5s ease-out;
+}
+
+.avengers-todo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(229, 62, 62, 0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(229, 62, 62, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(229, 62, 62, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(229, 62, 62, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Add hover effects */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Add smooth transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
